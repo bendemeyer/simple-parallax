@@ -1,8 +1,8 @@
 (function ($) {
    
-    $.fn.simpleParallax = function (arg) {
-        $.fn.simpleParallax.count = $.fn.simpleParallax.count ? $.fn.simpleParallax.count + 1 : 1;
-        var _this = this;
+	$.fn.simpleParallax = function (arg) {
+		$.fn.simpleParallax.count = $.fn.simpleParallax.count ? $.fn.simpleParallax.count + 1 : 1;
+		var _this = this;
 		
 		
 		// Easings based on jQuery UI implementation
@@ -67,8 +67,8 @@
 			})();
 		}
 		
-        $.each(arguments, function(index, value) {
-            var arg = value;
+		$.each(arguments, function(index, value) {
+			var arg = value;
 			var switchOnly = false;
 			
 			if (typeof(arg.easing) != 'function') {
@@ -93,11 +93,11 @@
 				arg.end = arg.start;
 				switchOnly = true;
 			}
-            
+			
 			var currPos = 0;
 			
-            $(window).on('scroll.simpleParallax:' + $.fn.simpleParallax.count, function () {
-                var newPos = $(window).scrollTop();
+			$(window).on('scroll.simpleParallax:' + $.fn.simpleParallax.count, function () {
+				var newPos = $(window).scrollTop();
 				var inc = 0;
 				if (newPos != currPos) {
 					inc = newPos > currPos ? 1 : -1;
@@ -106,10 +106,10 @@
 					currPos += inc;
 					applyParallax(currPos, inc == 1);
 				}
-            });
+			});
 			
 			function applyParallax(position, inc) {
-                if (position >= arg.start && position <= arg.end) {
+				if (position >= arg.start && position <= arg.end) {
 					var rule = '';
 					if (!switchOnly) {
 						var percent = (position - arg.start) / delta;
@@ -138,19 +138,19 @@
 					} else {
 						rule = inc ? arg.cssEnd : arg.cssStart;
 					}
-                    _this.css(arg.cssProp, rule);
-                }
+					_this.css(arg.cssProp, rule);
+				}
 			};
-        });
-        
-        _this.destroyParallax = function () {
-            $(window).off('scroll.simpleParallax:' + $.fn.simpleParallax.count);
-        };
+		});
+		
+		_this.destroyParallax = function () {
+			$(window).off('scroll.simpleParallax:' + $.fn.simpleParallax.count);
+		};
 		
 		_this.triggerParallax = function (pos) {
 			$(window).trigger('scroll.simpleParallax:' + $.fn.simpleParallax.count);
 		};
-        
-        return this;
-    };
+		
+		return this;
+	};
 })(jQuery);
