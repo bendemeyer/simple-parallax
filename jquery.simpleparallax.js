@@ -1,7 +1,7 @@
 (function ($) {
    
 	$.fn.simpleParallax = function (arg) {
-		$.fn.simpleParallax.count = $.fn.simpleParallax.count ? $.fn.simpleParallax.count + 1 : 1;
+		var instance = $.fn.simpleParallax.count = $.fn.simpleParallax.count ? $.fn.simpleParallax.count + 1 : 1;
 		var _this = this;
 		
 		
@@ -94,9 +94,9 @@
 				switchOnly = true;
 			}
 			
-			var currPos = 0;
+			var currPos = -1;
 			
-			$(window).on('scroll.simpleParallax:' + $.fn.simpleParallax.count, function () {
+			$(window).on('scroll.simpleParallax:' + instance, function () {
 				var newPos = $(window).scrollTop();
 				var inc = 0;
 				if (newPos != currPos) {
@@ -144,12 +144,14 @@
 		});
 		
 		_this.destroyParallax = function () {
-			$(window).off('scroll.simpleParallax:' + $.fn.simpleParallax.count);
+			$(window).off('scroll.simpleParallax:' + instance);
 		};
 		
-		_this.triggerParallax = function (pos) {
-			$(window).trigger('scroll.simpleParallax:' + $.fn.simpleParallax.count);
+		_this.triggerParallax = function () {
+			$(window).trigger('scroll.simpleParallax:' + instance);
 		};
+		
+		_this.triggerParallax();
 		
 		return this;
 	};
