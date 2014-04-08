@@ -6,6 +6,7 @@
 		
 		
 		// Easings based on jQuery UI implementation
+		// Copyright 2014 jQuery Foundation and other contributors; Licensed MIT
 		// http://api.jqueryui.com/easings/
 		
 		var easings = {};
