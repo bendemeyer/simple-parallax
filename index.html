@@ -2,8 +2,171 @@
 <html>
 	<head>
 		<title>Simple Parallax</title>
+		<style>
+			.edge {
+				position:fixed;
+				height:100px;
+				width:100px;
+				background:#0000ff;
+				top:0;
+				left:0;
+			}
+			.middle {
+				position:fixed;
+				top:100px;
+				left: 100px;
+				right: 100px;
+				bottom:100px;
+				padding: 0 20px
+			}
+		</style>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script src="jquery.simpleparallax.js"></script>
+		<script>
+			$(document).ready(function () {
+				a = {
+					start: 0,
+					end: 500,
+					cssProp: 'height',
+					cssStart: '100px',
+					cssEnd: $(window).height() + 'px'
+				};
+				b = {
+					start: 500,
+					cssProp: 'top',
+					cssStart: '0',
+					cssEnd: 'auto'
+				};
+				c = {
+					start: 500,
+					cssProp: 'bottom',
+					cssStart: 'auto',
+					cssEnd: '0'
+				};
+				d = {
+					start: 500,
+					end: 1000,
+					cssProp: 'height',
+					cssStart: $(window).height() + 'px',
+					cssEnd: '100px'
+				};
+				e = {
+					start: 1000,
+					end: 1500,
+					cssProp: 'width',
+					cssStart: '100px',
+					cssEnd: $(window).width() + 'px'
+				};
+				f = {
+					start: 1500,
+					cssProp: 'left',
+					cssStart: '0',
+					cssEnd: 'auto'
+				};
+				g = {
+					start: 1500,
+					cssProp: 'right',
+					cssStart: 'auto',
+					cssEnd: '0'
+				};
+				h = {
+					start: 1500,
+					end: 2000,
+					cssProp: 'width',
+					cssStart: $(window).width() + 'px',
+					cssEnd: '100px'
+				};
+				i = {
+					start: 2000,
+					end: 2500,
+					cssProp: 'height',
+					cssStart: '100px',
+					cssEnd: $(window).height() + 'px'
+				};
+				j = {
+					start: 2500,
+					cssProp: 'bottom',
+					cssStart: '0',
+					cssEnd: 'auto'
+				};
+				k = {
+					start: 2500,
+					cssProp: 'top',
+					cssStart: 'auto',
+					cssEnd: '0'
+				};
+				l = {
+					start: 2500,
+					end: 3000,
+					cssProp: 'height',
+					cssStart: $(window).height() + 'px',
+					cssEnd: '100px'
+				};
+				m = {
+					start: 3000,
+					end: 3500,
+					cssProp: 'width',
+					cssStart: '100px',
+					cssEnd: $(window).width() + 'px'
+				};
+				n = {
+					start: 3500,
+					cssProp: 'right',
+					cssStart: '0',
+					cssEnd: 'auto'
+				};
+				o = {
+					start: 3500,
+					cssProp: 'left',
+					cssStart: 'auto',
+					cssEnd: '0'
+				};
+				p = {
+					start: 3500,
+					end: 4000,
+					cssProp: 'width',
+					cssStart: $(window).width() + 'px',
+					cssEnd: '100px'
+				};
+				q = {
+					start: 0,
+					end: 1000,
+					cssProp: 'background-color',
+					cssStart: 'rgb(0, 0, 255)',
+					cssEnd: 'rgb(0, 255, 0)'
+				};
+				r = {
+					start: 1000,
+					end: 2000,
+					cssProp: 'background-color',
+					cssStart: 'rgb(0, 255, 0)',
+					cssEnd: 'rgb(255, 255, 0)'
+				};
+				s = {
+					start: 2000,
+					end: 3000,
+					cssProp: 'background-color',
+					cssStart: 'rgb(255, 255, 0)',
+					cssEnd: 'rgb(255, 0, 0)'
+				};
+				t = {
+					start: 3000,
+					end: 4000,
+					cssProp: 'background-color',
+					cssStart: 'rgb(255, 0, 0)',
+					cssEnd: 'rgb(0, 0, 255)'
+				};
+				
+				$('.edge').simpleParallax(a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t);
+			});
+		</script>
+		<meta content="width=device-width, initial-scale=1.0, user-scalable=no" name="viewport">
 	</head>
-	<body>
-		<h2>Simple Parallax Demo (eventually...)</h2>
+	<body style="height: 6000px;">
+		<div class="edge"></div>
+		<div class="middle">
+			<h2>Simple Parallax</h2>
+			<p><a href="easings.html">Easings</a></p>
+		</div>
 	</body>
 </html>
